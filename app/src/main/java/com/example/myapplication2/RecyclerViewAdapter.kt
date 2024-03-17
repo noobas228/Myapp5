@@ -34,6 +34,7 @@ class RecyclerViewAdapter: PagedListAdapter<CharacterData, RecyclerViewAdapter.M
             img.setOnClickListener { view ->
                 val intent = Intent(view.context, MainActivity2::class.java)
                 intent.putExtra("id",data.id)
+                intent.putExtra("img",data.image)
                 view.context.startActivity(intent)
             }
 
@@ -46,6 +47,8 @@ class RecyclerViewAdapter: PagedListAdapter<CharacterData, RecyclerViewAdapter.M
             
         }
     }
+
+
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(getItem(position)!!)

@@ -12,7 +12,7 @@ data class CharacterData(
     val created: String? = "",
     val episode: List<String>? = arrayListOf(),
     val gender: String? = "",
-    val id: Int? = 0,
+    var id: Int? = 0,
     val image: String? = "",
     val location: Location? = Location("", ""),
     val name: String? = "",

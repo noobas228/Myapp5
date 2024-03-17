@@ -1,6 +1,7 @@
 package com.example.myapplication2
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,18 +31,21 @@ class RecyclerViewAdapter: PagedListAdapter<CharacterData, RecyclerViewAdapter.M
             tvspecies.text = data.species
             tvstatuslive.text = data.status
             tvoriginal.text = data.origin?.name
+            img.setOnClickListener { view ->
+                val intent = Intent(view.context, MainActivity2::class.java)
+                intent.putExtra("id",data.id)
+                view.context.startActivity(intent)
+            }
+
 
             val url = data.image
             Glide.with(img)
                 .load(url)
                 .circleCrop()
                 .into(img)
+            
         }
     }
-
-    //fun bind(data: CharacterData){
-
-    //}
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(getItem(position)!!)
